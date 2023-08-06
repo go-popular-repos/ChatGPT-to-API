@@ -1,5 +1,5 @@
 # Use the official Golang image as the builder
-FROM golang:1.20.3-alpine as builder
+FROM golang:1.20.2-alpine as builder
 
 # Enable CGO to use C libraries (set to 0 to disable it)
 # We set it to 0 to build a fully static binary for our final image
@@ -21,7 +21,8 @@ COPY . .
 RUN go build -o /app/ChatGPT-To-API .
 
 # Use a scratch image as the final distroless image
-FROM scratch
+# FROM scratch
+FROM python:3.11.3-slim-bullseye
 
 # Set the working directory
 WORKDIR /app
