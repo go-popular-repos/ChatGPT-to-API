@@ -22,7 +22,7 @@ RUN go build -o /app/ChatGPT-To-API .
 
 # Use a scratch image as the final distroless image
 # FROM scratch
-FROM python:3.11.3-slim-bullseye
+FROM python:3.13.0a2-slim-bullseye
 
 # Set the working directory
 WORKDIR /app
